@@ -73,5 +73,12 @@ button {
   color: white;
   margin-right: 170px;
 }
-
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 75%;
+  }
+  button {
+    margin-right: 115px;
+  }
+}
 </style>

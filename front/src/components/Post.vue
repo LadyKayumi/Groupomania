@@ -257,9 +257,11 @@ export default {
   cursor: pointer;
   padding: 10px 5px;
   margin-bottom: 50px;
-  border: 1px solid #FD2D01;
+  border: 1px solid grey;
   border-radius: 10px;
   overflow: hidden;
+  background-color: #FFD7D7;
+  box-shadow: 2px 2px 5px grey;
 
   &:hover {
     box-shadow: 0 0 7.5px #FD2D01;

@@ -150,10 +150,7 @@ export default {
 
 <style lang="scss" scoped>
 #profile {
-
-  .tabs,
-  .profile,
-  .options {
+  .profile, .options {
     margin: 5vw 25vw;
     margin-bottom: 2.5vh;
     padding: 2.5vh 2.5vw;
@@ -256,7 +253,8 @@ export default {
   text-align: left;
   border: 1px solid hsl(10, 99%, 55%);
   border-radius: 25px;
-  box-shadow: 0 0 20px hsl(10, 99%, 65%);
+  box-shadow: 0 0 10px hsl(10, 99%, 65%);
+  background-color: #FFD7D7;
 
   h3 {
     margin-bottom: .5em;

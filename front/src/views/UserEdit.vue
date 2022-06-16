@@ -10,37 +10,37 @@
         <div class="modify__inputs__inputline">
           <input v-on:keyup.enter="modify()" v-model="firstName"
             :class="{ validInput: isFirstNameValid, invalidInput: !isFirstNameValid && firstName.length > 0 }"
-            class="modify__inputs__inputline__firstname" type="text" name="firstName" id="firstName" placeholder="ﾠ"
-            autocomplete="off" required>
-          <label class="label" for="firstName">Prénom</label>
+            class="modify__inputs__inputline__firstname" type="text" name="firstName" id="firstName"
+            placeholder="Prénom" autocomplete="off" required>
+          <label class="label" for="firstName"></label>
         </div>
         <div class="modify__inputs__inputline">
           <input v-on:keyup.enter="modify()" v-model="lastName"
             :class="{ validInput: isLastNameValid, invalidInput: !isLastNameValid && lastName.length > 0 }"
-            class="modify__inputs__inputline__lastname" type="text" name="lastName" id="lastName" placeholder="ﾠ"
+            class="modify__inputs__inputline__lastname" type="text" name="lastName" id="lastName" placeholder="Nom"
             autocomplete="off" required>
-          <label class="label" for="lastName">Nom</label>
+          <label class="label" for="lastName"></label>
         </div>
         <div class="modify__inputs__inputline">
           <input v-on:keyup.enter="modify()" v-model="username"
             :class="{ validInput: isUsernameValid, invalidInput: !isUsernameValid && username.length > 0 }"
-            class="modify__inputs__inputline__username" type="text" name="username" id="username" placeholder="ﾠ"
-            autocomplete="off" required>
-          <label class="label" for="username">Nom d'utilisateur</label>
+            class="modify__inputs__inputline__username" type="text" name="username" id="username"
+            placeholder="Nom d'utilisateur" autocomplete="off" required>
+          <label class="label" for="username"></label>
         </div>
         <div class="modify__inputs__inputline">
           <input v-on:keyup.enter="modify()" v-model="email"
             :class="{ validInput: isEmailValid, invalidInput: !isEmailValid && email.length > 0 }"
-            class="modify__inputs__inputline__email" type="email" name="email" id="email" placeholder="ﾠ"
+            class="modify__inputs__inputline__email" type="email" name="email" id="email" placeholder="Mail"
             autocomplete="off" required>
-          <label class="label" for="email">Mail</label>
+          <label class="label" for="email"></label>
         </div>
         <div class="modify__inputs__inputline">
           <input v-on:keyup.enter="modify()" v-model="password"
             :class="{ validInput: isPasswordValid, invalidInput: !isPasswordValid && password.length > 0 }"
-            class="modify__inputs__inputline__password" type="password" name="password" id="password" placeholder="ﾠ"
-            autocomplete="off" required>
-          <label class="label" for="password">Mot de passe</label>
+            class="modify__inputs__inputline__password" type="password" name="password" id="password"
+            placeholder="Mot de passe" autocomplete="off" required>
+          <label class="label" for="password"></label>
         </div>
         <div v-if="user.admin" class="modify__inputs__inputline__admin">
           <label class="label" for="admin">Administrateur</label>
@@ -193,7 +193,8 @@ export default {
   text-align: left;
   border: 1px solid hsl(10, 99%, 55%);
   border-radius: 25px;
-  box-shadow: 0 0 20px hsl(10, 99%, 65%);
+  box-shadow: 0 0 10px hsl(10, 99%, 65%);
+  background-color: #FFD7D7;
 
   h2 {
     margin-bottom: .5em;
@@ -252,7 +253,6 @@ export default {
 }
 
 .modify__inputs {
-  background-color: #ffffff;
   margin: 25px auto;
   display: flex;
   flex-direction: column;
@@ -285,61 +285,8 @@ export default {
     margin: 15px 0;
   }
 
-  .label {
+  ::placeholder {
     color: #cccccc;
-    position: absolute;
-    pointer-events: none;
-    top: 5px;
-    left: 3%;
-    transition: all 0.1s ease;
-
-    input:focus .label {
-      top: -15px;
-      left: 2%;
-      font-size: .85em;
-      opacity: 1;
-      color: #404040;
-
-      &__admin {
-        display: flex;
-
-        input {
-          accent-color: hsl(10, 99%, 50%);
-        }
-      }
-    }
-
-    input:not(:focus):not(:placeholder-shown) .label {
-      top: -15px;
-      left: 2%;
-      font-size: .85em;
-      opacity: 1;
-      color: #404040;
-
-      &__admin {
-        display: flex;
-
-        input {
-          accent-color: hsl(10, 99%, 50%);
-        }
-      }
-    }
-
-    input:not(:focus):valid .label {
-      top: -15px;
-      left: 2%;
-      font-size: .85em;
-      opacity: 1;
-      color: #404040;
-
-      &__admin {
-        display: flex;
-
-        input {
-          accent-color: hsl(10, 99%, 50%);
-        }
-      }
-    }
   }
 }
 
@@ -352,52 +299,52 @@ export default {
   }
 }
 
-  @media screen and (max-width: 1024px) {
-    #profile__edit {
+@media screen and (max-width: 1024px) {
+  #profile__edit {
 
-      .modify,
-      .options {
-        margin: 0 2.5vw;
-      }
-    }
-
-    .profile__separation {
-      margin: 2.5vh 0;
+    .modify,
+    .options {
+      margin: 0 2.5vw;
     }
   }
 
-  @media screen and (max-width: 768px) {
-    #profile__edit {
+  .profile__separation {
+    margin: 2.5vh 0;
+  }
+}
 
-      .modify,
-      .options {
-        margin: 0 2.5vw;
-      }
+@media screen and (max-width: 768px) {
+  #profile__edit {
+
+    .modify,
+    .options {
+      margin: 0 2.5vw;
     }
+  }
 
-    .modify {
+  .modify {
+    flex-direction: column;
+
+    &__image {
+      display: flex;
       flex-direction: column;
+      justify-content: center;
+    }
 
-      &__image {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
+    &__separation {
+      border-bottom: 1px solid hsl(10, 99%, 65%);
+      margin: 0 2.5vh;
+    }
 
-      &__separation {
-        border-bottom: 1px solid hsl(10, 99%, 65%);
-        margin: 0 2.5vh;
-      }
+    &__inputs {
+      margin: 0;
 
-      &__inputs {
-        margin: 0;
-
-        input[type="password"],
-        input[type="email"],
-        input[type="text"] {
-          width: 90%;
-        }
+      input[type="password"],
+      input[type="email"],
+      input[type="text"] {
+        width: 90%;
       }
     }
   }
+}
 </style>

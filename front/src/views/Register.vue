@@ -5,36 +5,36 @@
       <div class="register__inputline">
         <input v-model="firstName"
           :class="{ validInput: isFirstNameValid, invalidInput: !isFirstNameValid && firstName.length > 0 }"
-          class="register__inputline__firstname" type="text" name="firstName" id="firstName" placeholder="ﾠ"
+          class="register__inputline__firstname" type="text" name="firstName" id="firstName" placeholder="Prénom"
           autocomplete="off" required>
-        <label class="label" for="firstName">Prénom</label>
+        <label class="label" for="firstName"></label>
       </div>
       <div class="register__inputline">
         <input v-model="lastName"
           :class="{ validInput: isLastNameValid, invalidInput: !isLastNameValid && lastName.length > 0 }"
-          class="register__inputline__lastname" type="text" name="lastName" id="lastName" placeholder="ﾠ"
+          class="register__inputline__lastname" type="text" name="lastName" id="lastName" placeholder="Nom"
           autocomplete="off" required>
-        <label class="label" for="lastName">Nom</label>
+        <label class="label" for="lastName"></label>
       </div>
       <div class="register__inputline">
         <input v-model="username"
           :class="{ validInput: isUsernameValid, invalidInput: !isUsernameValid && username.length > 0 }"
-          class="register__inputline__username" type="text" name="username" id="username" placeholder="ﾠ"
+          class="register__inputline__username" type="text" name="username" id="username" placeholder="Nom d'utilisateur"
           autocomplete="off" required>
-        <label class="label" for="username">Nom d'utilisateur</label>
+        <label class="label" for="username"></label>
       </div>
       <div class="register__inputline">
         <input v-model="email" :class="{ validInput: isEmailValid, invalidInput: !isEmailValid && email.length > 0 }"
-          class="register__inputline__email" type="email" name="email" id="email" placeholder="ﾠ" autocomplete="off"
+          class="register__inputline__email" type="email" name="email" id="email" placeholder="Mail" autocomplete="off"
           required>
-        <label class="label" for="email">Mail</label>
+        <label class="label" for="email"></label>
       </div>
       <div class="register__inputline">
         <input v-model="password"
           :class="{ validInput: isPasswordValid, invalidInput: !isPasswordValid && password.length > 0 }"
-          class="register__inputline__password" type="password" name="password" id="password" placeholder="ﾠ"
+          class="register__inputline__password" type="password" name="password" id="password" placeholder="Mot de passe"
           autocomplete="off" required>
-        <label class="label" for="password">Mot de passe</label>
+        <label class="label" for="password"></label>
       </div>
       <input @click="register()" type="submit" value="S'inscrire">
     </form>
@@ -133,19 +133,23 @@ a {
 
 .register {
   width: 35vw;
-  background-color: #ffffff;
+  background-color: #FD2D01;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h2 {
     text-align: center;
-    color: #5b6574;
+    color: white;
     font-size: 1.5em;
     padding: 20px 0;
-    border-bottom: 1px solid #dee0e4;
   }
 
   form {
+    width: 85%;
     display: flex;
+    background-color: #FFD7D7;
     flex-direction: column;
     padding-top: 20px;
 
@@ -155,11 +159,10 @@ a {
       width: 75%;
       height: 30px;
       border: none;
-      border-bottom: 1px solid #dee0e4;
+      border: 1px solid grey;
       outline: none;
       padding: 0 15px;
-      transition-property: border;
-      transition-duration: 200ms;
+      border-radius: 10px;
     }
 
     &.invalidInput {
@@ -171,16 +174,15 @@ a {
     }
 
     input[type="submit"] {
-      width: 75%;
+      width: 50%;
       align-self: center;
       padding: 15px;
-      margin-top: 20px;
+      margin: 15px 0;
       background-color: hsl(10, 99%, 50%);
       border: none;
       cursor: pointer;
       font-weight: bold;
       color: #ffffff;
-      transition: background-color 250ms;
       border-radius: 15px;
 
       &:hover {
@@ -193,37 +195,8 @@ a {
     position: relative;
     margin: 15px 0;
 
-    .label {
+    ::placeholder {
       color: #cccccc;
-      position: absolute;
-      pointer-events: none;
-      top: 5px;
-      left: 12%;
-      transition: all 0.1s ease;
-    }
-
-    input:focus .label {
-      top: -15px;
-      left: 11%;
-      font-size: .85em;
-      opacity: 1;
-      color: #404040;
-    }
-
-    input:not(:focus):not(:placeholder-shown) .label {
-      top: -15px;
-      left: 11%;
-      font-size: .85em;
-      opacity: 1;
-      color: #404040;
-    }
-
-    input:not(:focus):valid .label {
-      top: -15px;
-      left: 11%;
-      font-size: .85em;
-      opacity: 1;
-      color: #404040;
     }
   }
 }
@@ -233,7 +206,8 @@ a {
   flex-direction: column;
 
   a {
-    margin: 5px auto;
+    margin-bottom: 25px;
+    color: #FFD7D7
   }
 }
 

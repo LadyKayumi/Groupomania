@@ -1,22 +1,25 @@
 <template>
-<main class="login">
-  <h2>Connexion</h2>
-  <form action="javascript:void(0);" method="post">
-    <div class="login__inputline">
-      <input v-model="email" :class="{ validInput: isEmailValid, invalidInput: !isEmailValid && email.length > 0 }" class="login__inputline__email" type="email" name="email" id="email" placeholder="ﾠ" autocomplete="off" required>
-      <label class="label" for="email">Mail</label>
+  <main class="login">
+    <h2>Connexion</h2>
+    <form action="javascript:void(0);" method="post">
+      <div class="login__inputline">
+        <input v-model="email" :class="{ validInput: isEmailValid, invalidInput: !isEmailValid && email.length > 0 }"
+          class="login__inputline__email" type="email" name="email" id="email" placeholder="Mail" autocomplete="off"
+          required>
+        <label class="label" for="email"></label>
+      </div>
+      <div class="login__inputline">
+        <input v-model="password" :class="{ validInput: password.length > 0 }" class="login__inputline__password"
+          type="password" name="password" id="password" placeholder="Mot de passe" autocomplete="off" required>
+        <label class="label" for="password"></label>
+      </div>
+      <input @click="login()" type="submit" value="Se connecter">
+    </form>
+    <p id="error">{{ errorMessage }}</p>
+    <div class="options">
+      <router-link :to="{ name: 'Register' }">Vous n'avez pas de compte ?</router-link>
     </div>
-    <div class="login__inputline">
-      <input v-model="password" :class="{ validInput: password.length > 0 }" class="login__inputline__password" type="password" name="password" id="password" placeholder="ﾠ" autocomplete="off" required>
-      <label class="label" for="password">Mot de passe</label>
-    </div>
-    <input @click="login()" type="submit" value="Se connecter">
-  </form>
-  <p id="error">{{ errorMessage }}</p>
-  <div class="options">
-    <router-link :to="{ name: 'Register' }">Vous n'avez pas de compte ?</router-link>
-  </div>
-</main>
+  </main>
 </template>
 
 <script>
@@ -69,7 +72,7 @@ export default {
           return
         }
       }
-      catch(err) {
+      catch (err) {
         return this.errorMessage = 'Request error.'
       }
       try {
@@ -86,7 +89,7 @@ export default {
           await this.$router.push({ name: 'Feed' })
         }
       }
-      catch(err) {
+      catch (err) {
         return
       }
     }
@@ -98,107 +101,93 @@ export default {
 a {
   text-decoration: none;
 }
+
 .login {
-  width: 35vw;
-  background-color: #ffffff;
-  margin: auto;
+  width: 22%;
+  border: 1px solid rgb(71, 71, 71);
+  background-color: #fd2d01;
+  box-shadow: 10px 10px 10px grey;
+  border-radius: 20px;
+  padding: 7em 5em;
+  margin: 2em auto;
+
   h2 {
-    text-align: center;
-    color: #5b6574;
-    font-size: 1.5em;
-    padding: 20px 0;
-    border-bottom: 1px solid #dee0e4;
+    color: white;
   }
+
   form {
     display: flex;
     flex-direction: column;
     padding-top: 20px;
+    background-color: #FFD7D7;
+    border: 2px solid grey;
 
-    input[type="password"], input[type="email"] {
+    input[type="password"],
+    input[type="email"] {
       width: 75%;
       height: 30px;
       border: none;
-      border-bottom: 1px solid #dee0e4;
+      border: 1px solid grey;
       outline: none;
       padding: 0 15px;
-      transition-property: border;
-      transition-duration: 200ms;
+      border-radius: 10px;
     }
-      &.invalidInput {
-        border-bottom: 1px solid red;
-      }
 
-      &.validInput {
-        border-bottom: 1px solid rgb(0, 185, 0);
-      }
+    &.invalidInput {
+      border-bottom: 1px solid black;
+    }
+
+    &.validInput {
+      border-bottom: 1px solid rgb(0, 185, 0);
+    }
+
     input[type="submit"] {
-      width: 75%;
+      width: 50%;
       align-self: center;
       padding: 15px;
-      margin-top: 20px;
+      margin: 10px 0;
       background-color: hsl(10, 99%, 50%);
       border: none;
       cursor: pointer;
       font-weight: bold;
       color: #ffffff;
-      transition: background-color 250ms;
       border-radius: 15px;
+      border: 2px solid grey;
+
       &:hover {
         background-color: hsl(10, 99%, 45%);
       }
     }
   }
+
   &__inputline {
     position: relative;
     margin: 15px 0;
 
-    .label {
+    ::placeholder {
       color: #cccccc;
-      position: absolute;
-      pointer-events: none;
-      top: 5px;
-      left: 12%;
-      transition: all 0.1s ease;
-    }
-    input:focus .label {
-      top: -15px;
-      left: 11%;
-      font-size: .85em;
-      opacity: 1;
-      color: #404040;
-    }
-    input:not(:focus):not(:placeholder-shown) .label {
-      top: -15px;
-      left: 11%;
-      font-size: .85em;
-      opacity: 1;
-      color: #404040;
-    }
-    input:not(:focus):valid .label {
-      top: -15px;
-      left: 11%;
-      font-size: .85em;
-      opacity: 1;
-      color: #404040;
     }
   }
 }
+
 .options {
   display: flex;
   flex-direction: column;
+
   a {
     margin: 5px auto;
+    color: #FFD7D7;
   }
 }
 
 #error {
   font-weight: bold;
-  color: red;
+  color: black;
 }
 
 @media screen and (max-width: 1024px) {
   .login {
-    width: 95vw;
+    width: 65vw;
   }
 }
 </style>
