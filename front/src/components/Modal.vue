@@ -2,12 +2,11 @@
   <div class="backdrop">
     <div class="modal">
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur
-        tempore amet aut perspiciatis accusantium fuga perferendis quae,
-        quisquam animi aspernatur quidem, harum porro hic labore neque dolorum
-        necessitatibus sequi veritatis. Cum neque eligendi explicabo repellat
-        minima, cupiditate facere molestias pariatur possimus numquam minus nam
-        ex consectetur praesentium labore maiores? Pariatur!
+        <strong>REGLES A SUIVRE</strong> <br> <br>
+        - Ne pas postez de contenus offensants <br> <br>
+        - Respectez autrui <br> <br>
+        - Ne pas hésitez à envoyer un message à un administrateur pour nous informer d'un comportement à punir <br> <br>
+        - Tout comportement peu recommendable pourra encourir d'une sanction, voir d'un banissement
       </p>
       <button @click="setReadRules({read: true, checked, overwrite: true})">Fermer</button>
       <input v-model="checked" type="checkbox">J'ai bien lu les règles
